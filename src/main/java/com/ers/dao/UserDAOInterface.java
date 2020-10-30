@@ -13,4 +13,6 @@ public interface UserDAOInterface {
 
     Set<Reimbursement> findReimbursementsByUserId (int userId);
 
+	User checkUsernamePassword(String username, String password);
+
 }
