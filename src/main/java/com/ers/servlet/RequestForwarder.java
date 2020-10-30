@@ -26,7 +26,7 @@ public class RequestForwarder {
 	
 	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		switch(req.getRequestURI()) {
-		case "/com-ers/all.json":
+		case "/com-ers/allReimbursements.json":
 			new ReimbursementController().sendAllData(req, res);
 			break;
 		
