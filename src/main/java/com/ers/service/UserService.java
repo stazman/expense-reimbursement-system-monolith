@@ -18,21 +18,13 @@ public class UserService {
 	public UserService() {
 		this(new UserDAO());
 	}
+	
+	public User validateUser(String username, String password) {
+		return udi.checkUsernamePassword(username, password);
+	}
 
 	public User findById(Integer id) {
 		return udi.findById(id);
-	}
-
-//	public User findByUsername(User u) {
-//		return udi.getUserByUsername();
-//	}
-
-//	public Set<User> findAll() {
-//		return uDao.findAll();
-//	}
-
-	public int save(User u) {
-		return uDao.create(u);
 	}
 
 }
