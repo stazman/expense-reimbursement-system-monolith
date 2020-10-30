@@ -123,12 +123,10 @@ public class UserDAO implements DAOControl<User, Integer>, UserDAOInterface {
 
 				ReimbursementStatus reimbStatus = new ReimbursementStatus();
 				reimbStatus.setReimbStatusId(rs.getInt("reimb_stat_id"));
-//				reimbStatus.setReimbStatus(rs.getString("reimb_stat"));
 				reimb.setReimbStatus(reimbStatus);
 
 				ReimbursementType reimbType = new ReimbursementType();
 				reimbType.setReimbTypeId(rs.getInt("reimb_type_id"));
-//				reimbType.setReimbType(rs.getString("reimb_type"));
 				reimb.setReimbType(reimbType);
 
 				allReimbs.add(reimb);

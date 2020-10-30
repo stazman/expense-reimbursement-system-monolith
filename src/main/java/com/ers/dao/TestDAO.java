@@ -1,13 +1,16 @@
 package com.ers.dao;
 
-import com.ers.models.*;
 
 import java.util.Set;
+
+import com.ers.models.Reimbursement;
+import com.ers.dao.ReimbursementDAO;
+
 
 public class TestDAO {
 
 	public static void main(String[] args) {
-		UserDAO ud = new UserDAO();
+
 		ReimbursementDAO rd = new ReimbursementDAO();
 
 		Set<Reimbursement> rSet = rd.findByStatus("Approved");
@@ -19,5 +22,5 @@ public class TestDAO {
 
 		//Test Commit
 	}
-}
 
+}

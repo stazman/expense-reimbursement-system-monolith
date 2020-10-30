@@ -1,11 +1,17 @@
 package com.ers.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.util.Optional;
+import java.util.Set;
 
 import com.ers.dao.UserDAOInterface;
+import com.ers.models.Reimbursement;
 import com.ers.models.User;
 import com.ers.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserController {
@@ -20,8 +26,12 @@ public class UserController {
 		this.uServ = uServ;
 	}
 
+//	public UserController() {
+//		this(new UserService());
+//	}
+
 	public UserController() {
-		this(new UserService());
+		// TODO Auto-generated constructor stub
 	}
 
 	public String redirectUser(HttpServletRequest req) {
@@ -47,6 +57,13 @@ public class UserController {
 
 	public String logout(HttpServletRequest req) {
 		return null;
+	}
+	
+	public void sendAllDataByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException {
+		User user = (User) req.getSession().getAttribute("user");
+		int userID = user.getUserId();
+		Set<Reimbursement> reimbs = uServ.findReimbursementsByUserId(userID);
+		res.getWriter().write(om.writeValueAsString(reimbs));
 	}
 
 }
